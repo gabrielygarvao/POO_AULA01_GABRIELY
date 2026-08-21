@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex 4 </title>
+    <script>
+        class Pedido { /* molde pra criar pedido */
+            constructor(numeroPedido) { /* qnd eu crio um novo pedido isso aq acontece */ 
+                this.numeroPedido = numeroPedido;
+                this.itens = [
+                    { nome: "hamburguer", preco: 20 },
+                    { nome: "batata", preco: 10 },
+                    { nome: "refrigerante", preco: 7 } /* cria uma propriedade chamada itens, um array com objetos dentro */ 
+                ];
+            }
+
+            /* ai o resto é os metodos */ 
+
+            adicionarItem(nome, preco) {
+                const item = {
+                    nome: nome,
+                    preco: preco
+                };
+
+                this.itens.push(item); /* push pra adiciona algo no FINAL do array. */
+            }
+
+            calcularTotal() {
+                let total = 0;
+
+                for (let item of this.itens) {
+                    total += item.preco;
+                }
+
+                return total; /* devolve o resultado da soma */ 
+            }
+
+            resumoPedido() {
+                console.log(`Pedido número: ${this.numeroPedido}`);
+                console.log("Itens do pedido:");
+
+                for (let item of this.itens) {
+                    console.log(`${item.nome} - R$ ${item.preco.toFixed(2)}`);
+                }
+
+                console.log(`Total: R$ ${this.calcularTotal().toFixed(2)}`);
+            }
+        }
+
+        const pedido1 = new Pedido(123);
+
+        pedido1.resumoPedido();
+
+    </script>
+</head>
+
+<body>
+
+</body>

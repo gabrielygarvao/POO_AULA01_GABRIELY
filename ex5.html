@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex 5</title>
+    <script>
+        class Carro {
+            constructor(marca, modelo, ano, preco) {
+                this.marca = marca;
+                this.modelo = modelo;
+                this.ano = ano;
+                this.preco = preco;
+            }
+        }
+
+        const car1 = new Carro("Toyota", "Corolla", 2020, 90000);
+        const car2 = new Carro("Honda", "Civic", 2019, 99000);
+        const car3 = new Carro("Volkswagen", "Golf", 2022, 100000);
+        const car4 = new Carro("Chevrolet", "Onix", 2021, 75000);
+        const car5 = new Carro("Fiat", "Argo", 2018, 80000);
+
+        const frota = [car1, car2, car3, car4, car5];
+
+        function filtrarCarrosPorAno(frota, anoMinimo) { /* recebe a frota e o ano mínimo */ 
+            const carrosFiltrados = [];
+            for (let carro of frota) {
+                if (carro.ano >= anoMinimo) { /* verifica se o carro é daquele ano ou mais novo. */
+                    carrosFiltrados.push(carro); /* coloca o carro aprovado dentro da nova lista. */
+                }
+            }
+            return carrosFiltrados; /* retorna a nova lista */
+        }
+
+        function calcularValorTotalFrota(frota) {
+            let total = 0;
+
+            for (let carro of frota) {
+                total += carro.preco;
+            }
+            return total; 
+        } /* valor total de mercado de todos
+        os veículos da lista. */
+
+        const carrosNovos = filtrarCarrosPorAno(frota, 2020);
+        console.log("Carros fabricados a partir de 2020:");
+        for (let carro of carrosNovos) {
+            console.log(`${carro.marca} ${carro.modelo} - ${carro.ano}`);
+        }
+
+        console.log(`Valor total da frota: R$${calcularValorTotalFrota(frota)}`);
+    </script>
+</head>
+<body>
+</body>

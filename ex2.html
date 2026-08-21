@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex 2</title>
+    <script>
+        class Termostato {
+            constructor(temperatura = 20) {
+                this.temperatura = temperatura;
+            }
+
+            aumentarTemp() {
+                if (this.temperatura + 10 > 35) {
+                    console.log("Não é possível aumentar, use o método diminuuir.");
+                } else {
+                    this.temperatura += 10;
+                    console.log(`temperatura ajustada para: ${this.temperatura}°C.`);
+                }
+            }
+        
+            diminuirTemp() {
+                if (this.temperatura - 10 < 10) {
+                    console.log("Não é possível diminuir, use o método aumentar.");
+                } else {
+                    this.temperatura -= 10;
+                    console.log(`Temperatura ajustada para: ${this.temperatura}°C.`);
+                }
+            }
+
+            status() {
+                console.log(`A temperatura é de: ${this.temperatura}`);
+            }
+        }
+
+        const termostato = new Termostato();
+        console.log(termostato.temperatura);
+
+    </script>
+</head>
+<body>
+</body>

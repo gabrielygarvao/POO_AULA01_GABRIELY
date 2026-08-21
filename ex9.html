@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex 9</title>
+    <script>
+        class Tarefa {
+            constructor(descricao) {
+                this.descricao = descricao;
+                this.concluida = false;
+            }
+        
+            concluir() {
+                this.concluida = true;
+            }
+        
+            reabrir() {
+                this.concluida = false;
+            }
+        }
+        
+        class GerenciadorDeTarefas {
+            constructor() {
+                this.tarefas = [];
+            }
+        
+            adicionarTarefa(descricao) {
+                let tarefa = new Tarefa(descricao);
+                this.tarefas.push(tarefa);
+            }
+        
+            listarPendentes() {
+                console.log("Tarefas pendentes:");
+        
+                this.tarefas
+                    .filter(tarefa => !tarefa.concluida)
+                    .forEach(tarefa => {
+                        console.log("- " + tarefa.descricao);
+                    });
+            }
+        
+            obterEstatisticas() {
+                let total = this.tarefas.length;
+        
+                let concluidas = this.tarefas.filter(
+                    tarefa => tarefa.concluida
+                ).length;
+        
+                let porcentagem = total === 0
+                    ? 0
+                    : (concluidas / total) * 100;
+        
+                console.log(`Total de tarefas: ${total}`);
+                console.log(`Tarefas concluídas: ${concluidas}`);
+                console.log(`${porcentagem}% das tarefas concluídas`);
+            }
+        }
+        const gerenciador = new GerenciadorDeTarefas();
+        
+        gerenciador.adicionarTarefa("Estudar JavaScript");
+        gerenciador.adicionarTarefa("Fazer atividade");
+        gerenciador.adicionarTarefa("Revisar conteúdo");
+        
+    </script>
+</head>
+<body>
+    
+</body>

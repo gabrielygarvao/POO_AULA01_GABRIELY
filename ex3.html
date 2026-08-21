@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex 3</title>
+    <script>
+        class Aluno {
+            constructor(nome) {
+                this.nome = nome;
+                this.notas = []; /* array no constructor info q ele vai pegar do objeto dps */
+            }
+
+            adicionarNota(nota) {
+                this.notas.push(nota);
+                console.log(`Nota ${nota} adicionada para ${this.nome}.`);
+            }
+
+            calcularMedia() {
+                let soma = 0;
+                for (let nota of this.notas) {
+                    soma += nota;
+                } /* percorre todas as notas q a gnt colocou no objeto e soma td elas */
+
+                let media = soma / this.notas.length;
+                return media; 
+                
+                /* divide a soma q a gnt fez anterior e divide pela quantidade denotas q a gnt tinha colocado antes, ent 3, e ai o return media da a o valor da media,
+                no verificaraprovacao ali em baixo é so pra ver se ele passou ou nao, a media ja ta calculada */
+            }
+
+            verificarAprovacao() {
+                let media = this.calcularMedia();
+                if (media >= 7) {
+                    console.log(`Aprovado. Média: ${media}`);
+                } else if (media >= 5) {
+                    console.log(`Em recuperação. Média: ${media}`);
+                } else {
+                    console.log(`Reprovado. Média: ${media}`);
+                }
+            }
+        }
+
+        const aluno = new Aluno("Bia");
+        let resultado = aluno.calcularMedia();
+    </script>
+</head>
+
+<body>
+
+</body>

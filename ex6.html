@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex 6</title>
+    <script>
+        class Livro {
+            constructor(titulo, autor) {
+                this.titulo = titulo;
+                this.autor = autor;
+                this.disponivel = true; /* propriedade booleana */
+            }
+
+            emprestar() {
+                if (this.disponivel == true) {
+                    this.disponivel = false;
+                    console.log(`O livro "${this.titulo}" foi emprestado.`);
+                } else {
+                    console.log(`O livro "${this.titulo}" já está emprestado.`);
+                }
+            }
+
+            devolver() {
+                this.disponivel = true;
+                console.log(`O livro "${this.titulo}" foi devolvido.`);
+            }
+        }
+
+        class Biblioteca {
+            constructor() {
+                this.acervo = [];
+            }
+
+            listarDisponiveis() {
+                console.log("Livros disponíveis:");
+
+                for (let livro of this.acervo) {
+                    if (livro.disponivel == true) { /* verifica se existe estoque suficiente */
+                        console.log(`${livro.titulo} - ${livro.autor}`);
+                    }
+                }
+            }
+        }
+
+        const livro1 = new Livro("Harry Potter", "J.K. Rowling");
+        const livro2 = new Livro("O Hobbit", "J.R.R. Tolkien");
+        const livro3 = new Livro("Dom Casmurro", "Machado de Assis");
+    
+        const biblioteca1 = new Biblioteca();
+    
+        biblioteca1.acervo.push(livro1);
+        biblioteca1.acervo.push(livro2);
+        biblioteca1.acervo.push(livro3);
+
+        /* ai no console ja vai ter os livros e a biblioteca, ai a gnt so precisa usar os metodos e tal (devolver, emprestar e listar os disponiveis) */
+    </script>
+</head>
+
+<body>
+
+</body>

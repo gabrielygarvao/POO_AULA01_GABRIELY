@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex 10</title>
+    <script>
+        class TelevisaoSmart {
+            constructor() {
+                this.canalAtual = 1;
+                this.volume = 10;
+                this.ligada = false;
+            }
+        
+            ligar() {
+                this.ligada = true;
+                console.log("A TV foi ligada.");
+            }
+        
+            desligar() {
+                this.ligada = false;
+                console.log("A TV foi desligada.");
+            }
+        
+            aumentarVolume() {
+                if (!this.ligada) {
+                    console.log("A TV está desligada! Ligue-a primeiro.");
+                    return;
+                }
+        
+                if (this.volume < 100) {
+                    this.volume++;
+                    console.log(`Volume: ${this.volume}`);
+                } else {
+                    console.log("O volume já está no máximo.");
+                }
+            }
+        
+            diminuirVolume() {
+                if (!this.ligada) {
+                    console.log("A TV está desligada, ligue-a primeiro.");
+                    return;
+                }
+        
+                if (this.volume > 0) {
+                    this.volume--;
+                    console.log(`Volume: ${this.volume}`);
+                } else {
+                    console.log("O volume já está no mínimo.");
+                }
+            }
+        
+            mudarCanal(novoCanal) {
+                if (!this.ligada) {
+                    console.log("A TV está desligada! Ligue-a primeiro.");
+                    return;
+                }
+        
+                this.canalAtual = novoCanal;
+                console.log(`Canal alterado para: ${this.canalAtual}`);
+            }
+        }
+    
+        const tv = new TelevisaoSmart();
+        
+
+    </script>
+</head>
+<body>
+    
+</body>

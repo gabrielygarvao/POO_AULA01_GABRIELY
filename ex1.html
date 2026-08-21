@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex 1</title>
+    <script>
+        class ContaBancaria {
+            constructor(titular, saldoInicial) {
+                this.titular = titular;
+                this.saldo = saldoInicial;
+            }
+            depositar(valor) {
+                this.saldo += valor;
+                console.log(`Depósito de R$${valor} realizado.`);
+            }
+
+            sacar(valor){
+            if (valor <= this.saldo) {
+                this.saldo -= valor;
+                console.log(`Saque de R$${valor} realizado.`);
+            } else {
+                console.log("O saldo é insuficiente.");
+            }
+            }
+
+        }
+        const conta1 = new ContaBancaria("Luisa", 0);
+
+        conta1.depositar(1000);
+        conta1.sacar(500);
+
+        conta1.sacar(600);
+    </script>
+</head>
+<body>
+    
+</body>
